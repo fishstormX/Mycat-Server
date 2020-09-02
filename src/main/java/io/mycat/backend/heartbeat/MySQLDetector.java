@@ -140,7 +140,8 @@ public class MySQLDetector implements SQLQueryResultListener<SQLQueryResult<Map<
 
 				if (Slave_IO_Running != null 
 						&& Slave_IO_Running.equals(Slave_SQL_Running) 
-						&& Slave_SQL_Running.equals("Yes")) {
+						&& Slave_SQL_Running.equals("Yes")
+						&& source.isSalveOrRead()) {
 					
 					heartbeat.setDbSynStatus(DBHeartbeat.DB_SYN_NORMAL);
 					String Seconds_Behind_Master = resultResult.get( "Seconds_Behind_Master");					
